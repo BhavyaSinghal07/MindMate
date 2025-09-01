@@ -28,107 +28,96 @@
     <div class="video-reflect"></div>
 
     <!-- Content over video -->
-    <div class="hero-content">
-      <h1>Welcome to your MindMate</h1>
-      <p>Empathetic AI, daily mood tracker, & personalized suggestions — accessible anytime.</p>
+<main class="hero-section">
+  <div class="hero-content">
+    <h1>Welcome to MindMate</h1>
+    <p>Your AI-powered companion for emotional wellness.
+    <br>
+      Understand your feelings, track your mood, and receive support anytime, anywhere.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Emotion Detection</h3>
-          <p>Facial + text analysis to sense emotional state in real time.</p>
-        </div>
-        <div class="card">
-          <h3>Daily Mood Tracker</h3>
-          <p>Quick emoji-based check-ins to build your emotional profile.</p>
-        </div>
-        <div class="card">
-          <h3>Personalized Support</h3>
-          <p>Memory-driven interactions and therapy suggestions inspired by proven methods.</p>
-        </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Smart Emotion Detection</h3>
+        <p>Facial + text analysis to sense emotional state in real time.</p>
+      </div>
+      <div class="card">
+        <h3>Daily Mood Tracker</h3>
+        <p>Quick emoji based check-ins to build your emotional profile.</p>
+      </div>
+      <div class="card">
+        <h3>Personalized Care & Guidance</h3>
+        <p>Memory driven interactions and therapy suggestions inspired by proven methods.</p>
       </div>
     </div>
-  </main>
+  </div>
+</main>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-labelledby="loginTitle">
+    <button class="modal-close" data-close="loginModal">&times;</button>
+    <h2 id="loginTitle">Sign In</h2>
+    <form id="loginForm" class="form">
+      <label>Email
+        <input type="email" placeholder="you@example.com" required />
+      </label>
+      <label>Password
+        <div class="pw-row">
+          <input type="password" id="loginPw" placeholder="Password" required />
+          <button type="button" class="pw-toggle" data-toggle="loginPw">Show</button>
+        </div>
+      </label>
+      <button class="primary" type="submit">Sign In</button>
+    </form>
+    <p class="switch-text">
+      Don't have an account? <a href="#" id="switchToRegisterTop">Create</a>
+    </p>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal" id="registerModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-labelledby="registerTitle">
+    <button class="modal-close" data-close="registerModal">&times;</button>
+    <h2 id="registerTitle">Register</h2>
+    <form id="registerForm" class="form">
+      <label>Full Name
+        <input type="text" placeholder="Your name" required />
+      </label>
+      <label>Email
+        <input type="email" placeholder="you@example.com" required />
+      </label>
+      <label>Mobile Number
+        <input type="tel" placeholder="+91 9876543210" required pattern="[0-9]{10}" />
+      </label>
+      <label>Date of Birth
+        <input type="date" required />
+      </label>
+      <label>Gender
+        <select required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="prefer_not">Prefer not to say</option>
+        </select>
+      </label>
+      <label>Create Password
+        <div class="pw-row">
+          <input type="password" id="regPw" placeholder="Create password" required />
+          <button type="button" class="pw-toggle" data-toggle="regPw">Show</button>
+        </div>
+      </label>
+      <button class="primary" type="submit">Create Account</button>
+    </form>
+    <p class="switch-text">
+      Already have an account? <a href="#" id="switchToLoginTop">Sign-in</a>
+    </p>
+  </div>
+</div>
 
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-labelledby="loginTitle">
-        <button class="modal-close" data-close="loginModal">&times;</button>
-        <h2 id="loginTitle">Sign In</h2>
 
-        <form id="loginForm" class="form">
-        <label>Email
-            <input type="email" placeholder="you@example.com" required />
-        </label>
-        <label>Password
-            <div class="pw-row">
-            <input type="password" id="loginPw" placeholder="Password" required />
-            <button type="button" class="pw-toggle" data-toggle="loginPw">Show</button>
-            </div>
-        </label>
-        <button class="primary" type="submit">Sign In</button>
-        </form>
-
-        <!-- line under sign-in -->
-        <p class="switch-text">
-        Don't have an account? <a href="#" id="switchToRegisterTop">Create</a>
-        </p>
-    </div>
-    </div>
-
-
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-labelledby="registerTitle">
-        <button class="modal-close" data-close="registerModal">&times;</button>
-        <h2 id="registerTitle">Register</h2>
-        <form id="registerForm" class="form">
-        
-        <label>Full Name
-            <input type="text" placeholder="Your name" required />
-        </label>
-
-        <label>Email
-            <input type="email" placeholder="you@example.com" required />
-        </label>
-
-        <label>Mobile Number
-            <input type="tel" placeholder="+91 9876543210" required pattern="[0-9]{10}" />
-        </label>
-
-        <label>Date of Birth
-            <input type="date" required />
-        </label>
-
-        <label>Gender
-            <select required>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-            <option value="prefer_not">Prefer not to say</option>
-            </select>
-        </label>
-
-        <label>Create Password
-            <div class="pw-row">
-            <input type="password" id="regPw" placeholder="Create password" required />
-            <button type="button" class="pw-toggle" data-toggle="regPw">Show</button>
-            </div>
-        </label>
-
-        <button class="primary" type="submit">Create Account</button>
-        </form>
-
-        <!-- line under create account -->
-        <p class="switch-text">
-            Already have an account? <a href="#" id="switchToLoginTop">Sign-in</a>
-        </p>
-
-    </div>
-    </div>
-
-
-    <script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
