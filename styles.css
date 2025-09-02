@@ -279,6 +279,55 @@ input:focus {
   transform: translateY(-3px) 
 }
 
+.date-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.flatpickr-input {
+  padding-right: 10px; /* right side padding for icon */
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: #e6eef2;
+  font-size: 15px;
+}
+
+#dob::placeholder {
+  color: var(--muted);
+}
+
+/* Calendar icon inside input box */
+.calendar-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  color: #e9fbf6;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* Gender select styling */
+select {
+  background: transparent;
+  color: #e9fbf6;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 10px 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Dropdown options color (Chrome/Safari) */
+select option {
+  background: #11182d; 
+  color: #e9fbf6;      
+}
+
 .pw-row { 
   display: flex; 
   gap: 8px; 
@@ -286,13 +335,17 @@ input:focus {
 }
 
 .pw-toggle {
-  background: transparent; 
-  border: 1px solid rgba(255,255,255,0.06);
-  color: var(--muted); 
-  padding: 6px 8px; 
-  border-radius: 8px; 
+  background: transparent;
+  border: none;
   cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
 }
+
+.pw-toggle:hover {
+  color: var(--accent);
+}
+
 
 .switch-text {
   margin-top: 14px; 

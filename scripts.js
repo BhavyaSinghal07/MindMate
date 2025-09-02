@@ -1,4 +1,4 @@
-// scripts.js - modal control and small enhancements
+
 
 const heroSection = document.querySelector('.hero-section');
 
@@ -68,21 +68,27 @@ document.querySelectorAll('.modal').forEach(modal => {
 });
 
 // password toggle buttons
-document.querySelectorAll('.pw-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
+document.querySelectorAll('.pw-toggle').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
     const targetId = btn.getAttribute('data-toggle');
     const input = document.getElementById(targetId);
+    const icon = btn.querySelector('i');
+
     if (!input) return;
 
-    if (input.type === 'password') {
-      input.type = 'text';
-      btn.textContent = 'Hide';
-    } else {
-      input.type = 'password';
-      btn.textContent = 'Show';
+    if (input.type === 'password'){ 
+      input.type = 'text'; 
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash'); // eye-slash icon
+    } 
+    else { 
+      input.type = 'password'; 
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye'); // back to eye icon
     }
   });
 });
+
 
 // prevent default form submissions (demo only)
 document.getElementById('loginForm')?.addEventListener('submit', (e) => {
@@ -119,4 +125,20 @@ document.getElementById('switchToLoginTop')?.addEventListener('click', (e) => {
   closeModalById('registerModal');
   heroSection.classList.add('active'); // keep hero shifted
   openModal('loginModal');
+});
+
+
+const dobInput = document.getElementById("dob");
+flatpickr(dobInput, {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+    theme: "dark",
+    allowInput: true,
+    clickOpens: false // default click disabled
+});
+
+// Font Awesome calendar icon opens picker
+document.querySelector(".calendar-icon").addEventListener("click", () => {
+    dobInput._flatpickr.open();
 });
