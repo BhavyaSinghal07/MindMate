@@ -1,5 +1,4 @@
 
-
 :root{
   --bg:#0b1020;
   --panel: rgba(255,255,255,0.04);
@@ -366,12 +365,30 @@ select option {
 
 /* responsive */
 @media (max-width:860px){
+
+  .hero-content.blur,
+  .cards.blur,
+  #bgVideo.blur,
+  .video-reflect.blur {
+    filter: blur(6px);
+    transition: filter 0.3s ease;
+  }
+
   .cards{flex-direction:column; align-items:center}
   .card{width:92%}
   .hero-content{padding:20px}
 }
 
 @media (max-width:420px){
+
+  .hero-content.blur,
+  .cards.blur,
+  #bgVideo.blur,
+  .video-reflect.blur {
+    filter: blur(6px);
+    transition: filter 0.3s ease;
+  }
+
   .brand{font-size:16px}
   .action-btn{padding:7px 10px; font-size:13px}
   .modal-panel{min-width:92%; margin:0 12px}

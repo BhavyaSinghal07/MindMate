@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MindMate - Machine Learning Based Mental Wellness Assistant System</title>
+  <title>MindMate - Machine Learning Based Mental Wellness Assistant</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -13,7 +13,6 @@
 </head>
 <body>
   <header class="site-header">
-
     <div class="brand">MindMate</div>
     <div class="actions">
       <button class="action-btn" id="loginBtn">Login</button>
@@ -56,79 +55,77 @@
       </div>
     </main>
 
-<!-- Login Modal -->
-<div class="modal" id="loginModal" aria-hidden="true">
-  <div class="modal-panel" role="dialog" aria-labelledby="loginTitle">
-    <button class="modal-close" data-close="loginModal">&times;</button>
-    <h2 id="loginTitle">Sign In</h2>
-    <form id="loginForm" class="form">
-      <label>Email
-        <input type="email" placeholder="you@example.com" required />
-      </label>
-      <label>Password
-        <div class="pw-row">
-          <input type="password" id="loginPw" placeholder="Password" required />
-          <button type="button" class="pw-toggle" data-toggle="loginPw">
-            <i class="fa-regular fa-eye"></i>
-          </button>
-        </div>
-      </label>
-      <button class="primary" type="submit">Sign In</button>
-    </form>
-    <p class="switch-text">
-      Don't have an account? <a href="#" id="switchToRegisterTop">Create</a>
-    </p>
-  </div>
-</div>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-labelledby="loginTitle">
+        <button class="modal-close" data-close="loginModal">&times;</button>
+        <h2 id="loginTitle">Sign In</h2>
+        <form id="loginForm" class="form">
+          <label>Email
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>Password
+            <div class="pw-row">
+              <input type="password" id="loginPw" placeholder="Password" required />
+              <button type="button" class="pw-toggle" data-toggle="loginPw">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </label>
+          <button class="primary" type="submit">Sign In</button>
+        </form>
+        <p class="switch-text">
+          Don't have an account? <a href="#" id="switchToRegisterTop">Create</a>
+        </p>
+      </div>
+    </div>
 
-<!-- Register Modal -->
-<div class="modal" id="registerModal" aria-hidden="true">
-  <div class="modal-panel" role="dialog" aria-labelledby="registerTitle">
-    <button class="modal-close" data-close="registerModal">&times;</button>
-    <h2 id="registerTitle">Register</h2>
-    <form id="registerForm" class="form">
-      <label>Full Name
-        <input type="text" placeholder="Your name" required />
-      </label>
-      <label>Email
-        <input type="email" placeholder="you@example.com" required />
-      </label>
-      <label>Mobile Number
-        <input type="tel" placeholder="+91 9876543210" required pattern="[0-9]{10}" />
-      </label>
-      <label>Date of Birth
-        <div class="date-wrapper">
-          <input type="text" id="dob" placeholder="Select Date">
-          <span class="calendar-icon"><i class="fas fa-calendar-alt"></i></span>
-        </div>
-      </label>
-      <label>Gender
-        <select required>
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-          <option value="prefer_not">Prefer not to say</option>
-        </select>
-      </label>
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal" aria-hidden="true">
+      <div class="modal-panel" role="dialog" aria-labelledby="registerTitle">
+        <button class="modal-close" data-close="registerModal">&times;</button>
+        <h2 id="registerTitle">Register</h2>
+        <form id="registerForm" class="form">
+          <label>Full Name
+            <input type="text" placeholder="Your name" required />
+          </label>
+          <label>Email
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>Mobile Number
+            <input type="tel" placeholder="+91 9876543210" required pattern="[0-9]{10}" />
+          </label>
+          <label>Date of Birth
+            <div class="date-wrapper">
+              <input type="text" id="dob" placeholder="Select Date">
+              <span class="calendar-icon"><i class="fas fa-calendar-alt"></i></span>
+            </div>
+          </label>
+          <label>Gender
+            <select required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+              <option value="prefer_not">Prefer not to say</option>
+            </select>
+          </label>
 
-      <label>Create Password
-        <div class="pw-row">
-          <input type="password" id="regPw" placeholder="Create password" required />
-          <button type="button" class="pw-toggle" data-toggle="regPw">
-            <i class="fa-regular fa-eye"></i>
-          </button>
-        </div>
-      </label>
-      <button class="primary" type="submit">Create Account</button>
-    </form>
-    <p class="switch-text">
-      Already have an account? <a href="#" id="switchToLoginTop">Sign-in</a>
-    </p>
-  </div>
-</div>
-
-
+          <label>Create Password
+            <div class="pw-row">
+              <input type="password" id="regPw" placeholder="Create password" required />
+              <button type="button" class="pw-toggle" data-toggle="regPw">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </label>
+          <button class="primary" type="submit">Create Account</button>
+        </form>
+        <p class="switch-text">
+          Already have an account? <a href="#" id="switchToLoginTop">Sign-in</a>
+        </p>
+      </div>
+    </div>
 
   <script src="scripts.js"></script>
 </body>

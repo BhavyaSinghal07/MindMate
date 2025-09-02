@@ -1,5 +1,4 @@
 
-
 const heroSection = document.querySelector('.hero-section');
 
 const loginBtn = document.getElementById('loginBtn');
@@ -142,3 +141,29 @@ flatpickr(dobInput, {
 document.querySelector(".calendar-icon").addEventListener("click", () => {
     dobInput._flatpickr.open();
 });
+
+
+
+function openModal(id){
+  // ensure other modal closed
+  document.querySelectorAll('.modal').forEach(m=>m.setAttribute('aria-hidden','true'));
+
+  // open requested
+  const el = document.getElementById(id);
+  if (el) el.setAttribute('aria-hidden','false');
+
+  // केवल mobile पर blur apply करो
+  if (window.matchMedia("(max-width: 860px)").matches) {
+    document.querySelectorAll('.hero-content, .cards, #bgVideo, .video-reflect')
+      .forEach(el => el.classList.add('blur'));
+  }
+}
+
+function closeModalById(id){
+  const el = document.getElementById(id);
+  if (el) el.setAttribute('aria-hidden','true');
+
+  // blur हटाओ
+  document.querySelectorAll('.hero-content, .cards, #bgVideo, .video-reflect')
+    .forEach(el => el.classList.remove('blur'));
+}
