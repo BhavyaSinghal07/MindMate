@@ -61,9 +61,10 @@
         <button class="modal-close" data-close="loginModal">&times;</button>
         <h2 id="loginTitle">Sign In</h2>
         <form id="loginForm" class="form">
-          <label>Email
-            <input type="email" placeholder="you@example.com" required />
+          <label>Username or Email
+            <input type="text" placeholder="Username or Email" required autocomplete="username" spellcheck="false" inputmode="email" pattern="(^[a-zA-Z0-9._-]{3,30}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)" title="Enter a username (3-30 chars: letters, numbers, . _ -) or a valid email address"/>  
           </label>
+
           <label>Password
             <div class="pw-row">
               <input type="password" id="loginPw" placeholder="Password" required />
@@ -87,10 +88,13 @@
         <h2 id="registerTitle">Register</h2>
         <form id="registerForm" class="form">
           <label>Full Name
-            <input type="text" placeholder="Your name" required />
+            <input type="text" placeholder="Your Name" required />
           </label>
           <label>Email
             <input type="email" placeholder="you@example.com" required />
+          </label>
+          <label>Username
+            <input type="text" placeholder="Username" required />
           </label>
           <label>Mobile Number
             <input type="tel" placeholder="+91 9876543210" required pattern="[0-9]{10}" />

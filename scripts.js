@@ -89,18 +89,20 @@ document.querySelectorAll('.pw-toggle').forEach(btn=>{
 });
 
 
-// prevent default form submissions (demo only)
+// Login form redirect
 document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Login submitted (demo). Replace with real auth logic.');
-  closeModalById('loginModal');
+    e.preventDefault();
+    // Simulate successful login (replace with real auth logic)
+    window.location.href = 'dashboard.html'; // Redirect to dashboard
 });
 
+// Register form redirect
 document.getElementById('registerForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Registration submitted (demo). Replace with real registration logic.');
-  closeModalById('registerModal');
+    e.preventDefault();
+    // Simulate successful registration (replace with real registration logic)
+    window.location.href = 'dashboard.html'; // Redirect to dashboard
 });
+
 
 // close modals on Escape key
 document.addEventListener('keydown', (e) => {
@@ -152,7 +154,7 @@ function openModal(id){
   const el = document.getElementById(id);
   if (el) el.setAttribute('aria-hidden','false');
 
-  // केवल mobile पर blur apply करो
+  // blur only for mobile
   if (window.matchMedia("(max-width: 860px)").matches) {
     document.querySelectorAll('.hero-content, .cards, #bgVideo, .video-reflect')
       .forEach(el => el.classList.add('blur'));
@@ -163,7 +165,7 @@ function closeModalById(id){
   const el = document.getElementById(id);
   if (el) el.setAttribute('aria-hidden','true');
 
-  // blur हटाओ
+  // remove blur
   document.querySelectorAll('.hero-content, .cards, #bgVideo, .video-reflect')
     .forEach(el => el.classList.remove('blur'));
 }
