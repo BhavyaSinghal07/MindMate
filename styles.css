@@ -279,6 +279,26 @@ input:focus {
   transform: translateY(-3px) 
 }
 
+/* Mobile number */
+.mobile-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.mobile-input select {
+  padding: 10px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: #e9fbf6;
+}
+
+.mobile-input input {
+  flex: 1;
+}
+
+
 .date-wrapper {
   position: relative;
   display: inline-block;
@@ -424,6 +444,7 @@ select option {
   flex-direction: column;
   align-items: center;
   width: 220px;       /* container width bigger than lottie-player */
+  cursor: pointer;
   background: none;
 }
 
