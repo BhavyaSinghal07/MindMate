@@ -1,147 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MindMate - Machine Learning Based Mental Wellness Assistant</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">MindMate</div>
-    <div class="actions">
-      <button class="action-btn" id="loginBtn">Login</button>
-      <button class="action-btn outline" id="registerBtn">Register</button>
-    </div>
+
+  <div id="overlay"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo">MindMate</div>
+  <nav class="nav-links">
+    <a href="#hero" class="nav-item">Home</a>
+    <a href="#services" class="nav-item">Services</a>
+    <a href="#stats" class="nav-item">Stats</a>
+    <a href="#journey" class="nav-item">Journey</a>
+    <a href="#contact" class="nav-item">Contact Us</a>
+    <button id="loginBtn" class="btn login-btn">Login</button>
+  </nav>
   </header>
 
-  <main class="hero">
-    <!-- Background video -->
-    <video id="bgVideo" autoplay loop muted playsinline>
-      <!-- Replace src with your project video URL or local file -->
-      <source src="https://cdn.coverr.co/videos/coverr-a-woman-looking-at-a-screen-1582" type="video/mp4">
-    </video>
 
-    <!-- subtle reflection / glass overlay to indicate video playing -->
-    <div class="video-reflect"></div>
-
-    <!-- Content over video -->
-    <main class="hero-section">
-      <div class="hero-content">
-        <h1>Welcome to MindMate</h1>
-        <p>Machine Learning Based Mental Wellness Assistant.
+  <!-- Hero (Home) Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>MindMate</span></h1>
+      <p>Machine Learning Based Mental Wellness Assistant.
         <br>
-          Understand your feelings, track your mood, and receive support anytime, anywhere.</p>
+        Understand your feelings, track your mood, and receive support anytime, anywhere.</p>
+      <button id="registerBtn" class="btn register-btn">Register</button>
+    </div>
+  </section>
 
-        <div class="cards">
-          <div class="card">
-            <h3>Smart Emotion Detection</h3>
-            <p>Facial + text analysis to sense emotional state in real time.</p>
-          </div>
-          <div class="card">
-            <h3>Daily Mood Tracker</h3>
-            <p>Quick emoji based check-ins to build your emotional profile.</p>
-          </div>
-          <div class="card">
-            <h3>Personalized Care & Guidance</h3>
-            <p>Memory driven interactions and therapy suggestions inspired by proven methods.</p>
-          </div>
+
+
+  <!-- Services Section -->
+  <section id="services" class="services-section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-container">
+
+      <div class="service-card">
+        <h3>Smart Emotion Recognition</h3>
+        <div class="text-box">
+        <p class="default-text">
+          Understands your feelings through real-time facial and text analysis.<br>
+          Adapts its responses instantly to match your emotional state.
+        </p>
+
+        <p class="hover-text">
+          Understands subtle emotional cues with AI-powered precision.
+          Analyzes facial expressions and text patterns intelligently.
+          Adapts responses to match your emotional shifts.
+          Designed to give you support that feels truly human-aware.
+        </p>
         </div>
       </div>
-    </main>
 
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal" aria-hidden="true">
-      <div class="modal-panel" role="dialog" aria-labelledby="loginTitle">
-        <button class="modal-close" data-close="loginModal">&times;</button>
-        <h2 id="loginTitle">Sign In</h2>
-        <form id="loginForm" class="form">
-          <label>Username or Email
-            <input type="text" placeholder="Username or Email" required autocomplete="username" spellcheck="false" inputmode="email" pattern="(^[a-zA-Z0-9._-]{3,30}$)|(^[^\s@]+@[^\s@]+\.[^\s@]+$)" title="Enter a username (3-30 chars: letters, numbers, . _ -) or a valid email address"/>  
-          </label>
-
-          <label>Password
-            <div class="pw-row">
-              <input type="password" id="loginPw" placeholder="Password" required />
-              <button type="button" class="pw-toggle" data-toggle="loginPw">
-                <i class="fa-regular fa-eye"></i>
-              </button>
-            </div>
-          </label>
-          <button class="primary" type="submit">Sign In</button>
-        </form>
-        <p class="switch-text">
-          Don't have an account? <a href="#" id="switchToRegisterTop">Create</a>
+      <div class="service-card">
+        <h3>AI-Powered Mood Tracker</h3>
+        <div class="text-box">
+        <p class="default-text">
+          Simple daily check-ins that map your emotional patterns over time. <br>
+          Helps you visualize your mental wellness journey effortlessly.
         </p>
+
+        <p class="hover-text">
+          Captures your daily mood with quick, intuitive check-ins.
+          Builds a detailed emotional progress map over time.
+          Reveals patterns to help you understand yourself better.
+          Supports long-term emotional awareness and growth.
+        </p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h3>Personalized Support & Insights</h3>
+        <div class="text-box">
+        <p class="default-text">
+          Learns from your behavior to offer tailored guidance that truly fits you. <br>
+          Blends smart memory with therapeutic principles for meaningful progress
+        </p>
+
+        <p class="hover-text">
+          Learns your behavioral patterns to offer tailored guidance.
+          Combines psychology-inspired methods with adaptive memory.
+          Gives recommendations aligned with your personality and needs.
+          Focused on helping you improve emotional wellness meaningfully.
+        </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+<!-- ======================= STATS ======================= -->
+<section id="stats" class="stats-section">
+  <h2 class="section-title">Mental Health Data (WHO-based)</h2>
+
+  <div class="stats-content">
+
+    <!-- CHART -->
+    <div class="chart-container">
+      <canvas id="mindmateChart"></canvas>
+    </div>
+
+    <!-- HOVER CARD (Desktop only) -->
+    <div class="stats-hover-card" id="statsHoverCard">
+      <h3 id="hoverTitle">Mental Health Insight</h3>
+      <p id="hoverDesc">Hover over a section of the chart to explore insights.</p>
+    </div>
+
+  </div>
+
+  <!-- MOBILE CARDS (Visible only on phones) -->
+  <div class="mobile-stats-cards">
+
+    <div class="mobile-card">
+      <h3>Depression Cases - 31%</h3>
+      <p>A growing number of individuals face clinical depression driven by lifestyle and emotional fatigue. Early therapy greatly enhances recovery.</p>
+    </div>
+
+    <div class="mobile-card">
+      <h3>People Avoiding Professional Help - 42%</h3>
+      <p>Many hesitate to seek mental-health support due to stigma and fear. Timely engagement prevents long-term psychological decline.</p>
+    </div>
+
+    <div class="mobile-card">
+      <h3>Therapy & Psychiatric Consultations - 17%</h3>
+      <p>Structured therapy and counseling significantly improve emotional health and coping mechanisms over time.</p>
+    </div>
+
+    <div class="mobile-card">
+      <h3>Undiagnosed Mental Stress - 10%</h3>
+      <p>Chronic stress often remains unnoticed. Early tracking and gentle interventions can prevent serious anxiety disorders.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ===== Journey Section ===== -->
+<section id="journey" class="journey-section">
+  <h2 class="section-title">Your MindMate Journey</h2>
+
+  <div class="timeline">
+
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="circle">1</div>
+      <div class="content">
+        <h3>Register & Earn 50 Starter Points</h3>
+        <p>Begin your mental-wellness journey by creating an account. You instantly receive 50 reward points as a welcome boost.</p>
       </div>
     </div>
 
-    <!-- Register Modal -->
-    <div class="modal" id="registerModal" aria-hidden="true">
-      <div class="modal-panel" role="dialog" aria-labelledby="registerTitle">
-        <button class="modal-close" data-close="registerModal">&times;</button>
-        <h2 id="registerTitle">Register</h2>
-        <form id="registerForm" class="form">
-          <label>Full Name
-            <input type="text" placeholder="Your Name" required />
-          </label>
-          <label>Email
-            <input type="email" placeholder="you@example.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
-          </label>
-          <label>Username
-            <input type="text" placeholder="Username" required />
-          </label>
-          
-          <label>Mobile Number
-            <div class="mobile-input">
-              <select id="countryCode" required>
-                <option value="+91">🇮🇳 +91</option>
-                <option value="+1">🇺🇸 +1</option>
-                <option value="+44">🇬🇧 +44</option>
-                <option value="+61">🇦🇺 +61</option>
-                <option value="+81">🇯🇵 +81</option>
-              </select>
-              <input type="tel" id="mobileNumber" placeholder="9876543210" required pattern="[0-9]{10}" />
-            </div>
-          </label>
-
-          <label>Date of Birth
-            <div class="date-wrapper">
-              <input type="text" id="dob" placeholder="Select Date">
-              <span class="calendar-icon"><i class="fas fa-calendar-alt"></i></span>
-            </div>
-          </label>
-          <label>Gender
-            <select required>
-              <option value="">Select</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-              <option value="prefer_not">Prefer not to say</option>
-            </select>
-          </label>
-
-          <label>Create Password
-            <div class="pw-row">
-              <input type="password" id="regPw" placeholder="Create password" required />
-              <button type="button" class="pw-toggle" data-toggle="regPw">
-                <i class="fa-regular fa-eye"></i>
-              </button>
-            </div>
-          </label>
-          <button class="primary" type="submit">Create Account</button>
-        </form>
-        <p class="switch-text">
-          Already have an account? <a href="#" id="switchToLoginTop">Sign-in</a>
-        </p>
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="circle">2</div>
+      <div class="content">
+        <h3>Daily Chat Rewards</h3>
+        <p>Stay connected with our AI companion once every 24 hours and earn 1 coin daily for maintaining consistency.</p>
       </div>
     </div>
 
-  <script src="scripts.js"></script>
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="circle">3</div>
+      <div class="content">
+        <h3>Weekly Consistency Bonus</h3>
+        <p>Interact with the chatbot or video-assistant for 7 continuous days and unlock an extra +5 coin bonus for your dedication.</p>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="circle">4</div>
+      <div class="content">
+        <h3>Unlock Psychologist Access (100 Coins)</h3>
+        <p>Collect 100 coins to unlock exclusive access to certified psychologists for guidance through human-based sessions.</p>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+      <div class="circle">5</div>
+      <div class="content">
+        <h3>Discover Premium Features (200 Coins)</h3>
+        <p>Reaching 200 coins gives you early access to upcoming premium tools, revealed only to our top, consistent achievers.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ===== contact / Contact Section ===== -->
+<section id="contact" class="contact-section">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact-content">
+    
+    <div class="contact-info">
+      <h3>Want to Collaborate?</h3>
+      <p>
+        If you're a <strong>psychiatrist</strong> or mental health expert who'd like to contribute 
+        to this project or share insights, reach out to us directly:
+      </p>
+      <p class="mail-link">📧 <a href="mailto:connect.ai.psychologist@gmail.com">connect.ai.psychologist@gmail.com</a></p>
+    </div>
+
+    <div class="contact-panel">
+      <h3>Contact Us</h3>
+      <p>Have suggestions or want to connect? Leave your email — we'll get back to you!</p>
+      <form class="contact-form">
+        <input type="email" id="userEmail" placeholder="Enter your email" required>
+        <button type="submit">Send</button>
+      </form>
+      <p id="formMessage" class="form-message"></p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== Footer Section ===== -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 MindMate. All rights reserved.</p>
+    <p class="made-with">Made with endless efforts
+      <br>
+      <span class="team-names">Ajay Kumar Sharma | Atharv Gupta | Bhavya Singhal | Khushi Gupta</span>
+    </p>
+  </div>
+</footer>
+
+
+
+  <!-- Forms -->
+  <div class="form-container" id="formContainer">
+  <!-- Login Form -->
+  <form class="form" id="loginForm">
+      <button class="close-form">X</button>
+
+      <h2>Login</h2>
+      <input type="text" id="loginName" placeholder="Full Name" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <span id="switchToRegister">Register</span></p>
+  </form>
+
+  <!-- Register Form -->
+  <form class="form" id="registerForm">
+    <button class="close-form">X</button>
+
+    <h2>Register</h2>
+
+    <input type="text" id="regName" placeholder="Full Name" required>
+    <input type="email" id="regEmail" placeholder="Email" required>
+    <input type="tel" id="regPhone" placeholder="Phone Number" required>
+
+    <!-- Date of Birth -->
+    <input type="date" id="regDOB" required>
+
+    <!-- Gender -->
+    <select id="regGender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <!-- Password with Eye Icon -->
+    <div class="password-container">
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <span class="toggle-password" id="toggleRegPass">👁</span>
+    </div>
+
+    <button type="submit">Create Account</button>
+
+    <p>Already have an account? <span id="switchToLogin">Login</span></p>
+  </form>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+
 </body>
 </html>

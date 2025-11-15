@@ -1,0 +1,261 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  color: #222;
+}
+
+/* NAVBAR */
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  color: rgb(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  height: 45px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 550;
+  font-family: 'Playfair Display', serif;
+}
+
+.profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.profile-mini img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgb(146, 243, 172);
+}
+
+.profile-mini span {
+  color: rgb(12, 53, 12);
+  font-weight: 700;
+}
+
+
+/* MAIN PROFILE SECTION */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px;
+}
+
+
+/* LEFT CARD */
+.profile-card {
+  width: 350px;
+  height: 400px;
+  padding: 25px;
+  background: rgba(255, 237, 237, 0.2);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(119, 118, 118, 0.25);
+  text-align: center;
+}
+
+.pfp-wrapper {
+  position: relative;
+}
+
+.pfp-wrapper img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(99, 231, 240, 0.5);
+}
+
+#changePhotoBtn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgb(81, 78, 78);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* BIO */
+#userBio {
+  margin-top: 20px;
+  width: 92%;
+  height: 90px;
+  border-radius: 12px;
+  border: 1px solid rgba(144, 143, 143, 0.3);
+  padding: 10px;
+  resize: none;
+}
+
+/* BUTTON */
+
+.saveBtn {
+  margin-top: 15px;
+  width: 40%;
+  padding: 10px;
+  background: #579ceb;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px; 
+  margin-top: 15px;
+}
+
+/* Buttons style */
+.save-btn,
+.logout-btn {
+  flex: 1; 
+  padding: 10px;
+  background: #579ceb;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+/* RIGHT CARD */
+.settings-card {
+  width: 450px;
+  padding: 25px;
+  background: rgba(213, 238, 240, 0.2);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(75, 73, 73, 0.25);
+}
+
+.settings-card h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.settings-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-card input,
+.settings-card select {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(89, 88, 88, 0.3);
+  background: rgba(255,255,255,0.4);
+}
+
+
+/* AVATAR POPUP */
+.avatar-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 380px;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+  z-index: 2000;
+  text-align: center;
+}
+
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.avatar-choice {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.avatar-choice:hover {
+  border: 3px solid #579ceb;
+}
+
+.close-avatar {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: #579ceb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+
+/*  CROP MODAL  */
+
+.crop-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.crop-box {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.crop-box img {
+  max-width: 300px;
+}
+
+.crop-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.crop-actions button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#cropSaveBtn {
+  background: #579ceb;
+  color: white;
+}
+
+#cropCancelBtn {
+  background: #ccc;
+}

@@ -1,83 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>MindMate Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMate Dashboard</title>
 
-  <!-- LottiePlayer CDN -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- LottiePlayer CDN -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
+    <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="brand">MindMate</div>
-    <div class="actions">
-        <!-- Add other action-buttons here if you want -->
-        <div class="profile"
-             style="cursor:pointer; display:flex; align-items:center; gap:10px;"
-             onclick="window.location.href='profile.html'">
-            <img src="avatar_default.png" class="profile-pic" width="36" height="36" alt="Profile">
-            <span class="profile-name" style="color:var(--accent); font-weight:600;">Username</span>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="dashboard-navbar">
+        <div class="logo">MindMate</div>
+
+        <div class="user-profile"  id="openProfilePage">
+            <img id="userPhoto" src="avtaar.png" alt="Profile">
+            <span id="username">User Name</span>
         </div>
+    </nav>
+    
+
+<!-- ===== DASHBOARD MAIN CONTENT ===== -->
+<section class="dashboard-actions">
+
+  <!-- LEFT: CAMERA BOT -->
+  <div class="action-card" id="cameraBotBtn">
+    
+    <lottie-player
+    src="Virtual Meeting.json"
+    background="transparent"
+    speed="1"
+    style="width: 200px; height: 200px;"
+    loop
+    autoplay></lottie-player>
+
+    <div class="card-text">
+    <h3>Virtual Camera Assistant</h3>
+    <p>Talk face-to-face with our AI assistant through live camera interaction.</p>
     </div>
-  </header>
+  </div>
 
 
-  <main class="hero-section">
-      <div class="hero-content">
-        <h2>Your Dashboard</h2>
-        <p>This is your personal dashboard. Here you can view your mood statistics, latest analysis, and access all MindMate features.</p>
-        <!-- Include your site features -->
-        <div class="cards">
-        <div class="card">
-            <h3>Mood Journal</h3>
-            <p>Track, edit, and review your emotional history over time.</p>
-        </div>
-        <div class="card">
-            <h3>Therapy Suggestions</h3>
-            <p>Get personalized care tips based on your moods.</p>
-        </div>
-        </div>
-      </div>
-  </main>
-
-
-<!-- Floating Chatbot Robot (already present) -->
-<!-- Robot Helper -->
-<div id="robot-helper" role="button" tabindex="0" aria-label="Open chat">
-  <lottie-player
+  <!-- RIGHT: CHAT BOT -->
+  <div class="action-card" id="chatBotBtn">
+    <lottie-player
     src="Robot says hello.json"
     background="transparent"
     speed="1"
     style="width: 200px; height: 200px;"
     loop
-    autoplay
-  ></lottie-player>
-  <div class="robot-message">How may I help you?</div>
-</div>
+    autoplay></lottie-player>
 
-
-<!-- Chat Panel Markup (Add at end of body but DO NOT duplicate robot-helper) -->
-<div id="chat-panel" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Chat window"
-     style="display:none;position:fixed;bottom:250px;right:20px;width:300px;height:400px;background:rgba(255,255,255,0.11);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.8);border: 1px solid var(--accent, #84f2e1);;flex-direction:column;backdrop-filter:blur(15px);color:#e6eef2;z-index:1100;overflow:hidden;">
-  <div id="chat-header" style="padding:10px 15px;background:rgba(255,255,255,0.15);font-weight:700;display:flex;justify-content:space-between;align-items:center;">
-    <span>MindMate Chat</span>
-    <button id="close-chat" aria-label="Close chat" style="background:transparent;border:none;color:#fff;font-size:24px;cursor:pointer;">&times;</button>
+    <div class="card-text">
+    <h3>Chat With MindMate</h3>
+    <p>Start a conversation with your AI support companion anytime.</p>
+    </div>
   </div>
-  <div id="chat-messages" style="flex:1;padding:10px 15px;overflow-y:auto;font-size:14px;line-height:1.4;"></div>
-  <form id="chat-form" autocomplete="off" style="display:flex;padding:10px 15px;border-top:1px solid rgba(255,255,255,0.1);">
-    <input type="text" id="chat-input" placeholder="Type a message..." aria-label="Type a message" required autocomplete="off"
-           style="flex:1;border-radius:10px;border:none;padding:8px 12px;font-size:14px;background:rgba(255,255,255,0.06);color:#f6f5f5;">
-    <button type="submit" style="margin-left:8px;padding:8px 16px;border-radius:10px;border:none;background:#5EEAD4;color:#052018;font-weight:600;cursor:pointer;">Send</button>
-  </form>
+
+</section>
+
+
+<!-- 🌟 CHAT WINDOW POPUP (hidden by default) -->
+<div class="chat-popup" id="chatWindow">
+  <div class="chat-header">
+    <span>MindMate Assistant</span>
+    <button class="close-chat" id="closeChatBtn">X</button>
+  </div>
+
+  <div class="chat-body">
+    <p class="bot-msg">Hello! How can I support you today?</p>
+  </div>
+
+  <div class="chat-input-box">
+    <input type="text" id="userMessage" placeholder="Type a message...">
+    <button id="sendMessage">Send</button>
+  </div>
 </div>
 
 
-  <script src="scripts.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>

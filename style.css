@@ -1,0 +1,877 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Merriweather:wght@700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffdee9, #b5fffc);
+    color: #222;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section h1,
+section h2,
+section h3,
+section h4 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+}
+
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0078ff;
+    transform: scale(1.05);
+}
+
+/* ===== Login Button (Blue Neon Glow) ===== */
+.login-btn {
+    position: relative;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #0078ff, #00c3ff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #0078ff, #00c3ff, #0078ff);
+    z-index: -1;
+    filter: blur(4px);
+    opacity: 0.8;
+    animation: bluePulse 3s linear infinite;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 120, 255, 0.6);
+}
+
+@keyframes bluePulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* ===== Hero Section ===== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh;
+    transition: all 0.6s ease;
+}
+
+.hero.shift-left {
+    transform: translateX(-25%);
+    filter: blur(1px);
+    opacity: 0.9;
+}
+
+.hero h1 {
+    margin: 75px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: #222;
+    margin-bottom: 1rem;
+    animation: fadeInText 1.5s ease forwards;
+}
+
+.hero h1 span {
+    color: #0078ff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 2rem;
+    animation: fadeInUp 2s ease forwards;
+}
+
+/* ===== Register Button (Pink Glow) ===== */
+.register-btn {
+    position: relative;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #ff0078, #ff66b2);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 45px;
+    background: linear-gradient(90deg, #fd298c, #fd67c4, #ff0078);
+    z-index: -1;
+    filter: blur(6px);
+    opacity: 0.8;
+    animation: glowPulse 3s linear infinite;
+}
+
+.register-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(255, 0, 120, 0.6);
+}
+
+@keyframes glowPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Overlay (blur background) ===== */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 90;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== Form Container (Fixed Centered) ===== */
+.form-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 100;
+}
+
+.form-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== Actual Forms ===== */
+.form {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 360px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    animation: formPop 0.4s ease forwards;
+}
+
+.form.active {
+    display: flex;
+}
+
+@keyframes formPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.form h2 {
+    text-align: center;
+    color: #0078ff;
+}
+
+.form input {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form input:focus {
+    border-color: #0078ff;
+}
+
+.form button {
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form button:hover {
+    background-color: #005fcc;
+    transform: scale(1.05);
+}
+
+.form p {
+    text-align: center;
+    color: #333;
+}
+
+.form p span {
+    color: #ff0078;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ===== Close Button ===== */
+.close-form {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.close-form:hover {
+    color: #ff0078;
+    transform: scale(1.2);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* --- Services Section --- */
+.services-section {
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  padding: 100px 40px;
+  text-align: center;
+  color: #222;
+  scroll-margin-top: 80px;
+  height: 90vh;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+  color: #014143;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  width: 400px;
+  height: 230px;       /* fixed clean height */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.4s ease, filter 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Hover Zoom */
+.service-card:hover {
+  transform: scale(1.15);  /* controlled zoom */
+  z-index: 10;
+}
+
+/* Dim non-hover cards */
+.services-container:hover .service-card:not(:hover) {
+  opacity: 0.6;
+  filter: blur(3px);
+  transform: scale(0.9);
+}
+
+/* ---- TITLE ---- */
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #14525b;
+  margin-bottom: 8px;
+}
+
+/* ---- TEXT BLOCKS ---- */
+.default-text,
+.hover-text {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.35;
+  transition: opacity 0.3s ease;
+}
+
+/* Default text visible initially */
+.default-text {
+  opacity: 1;
+}
+
+/* Hover text hidden initially */
+.hover-text {
+  opacity: 0;
+  position: absolute;
+  top: 80px;          /* VAHI, but fixed by scroll area */
+  left: 0;
+  width: 100%;
+  height: 160px;       /* perfect area — prevents bottom blank space */
+  padding: 0 15px;
+  overflow-y: auto;    /* scrolling */
+  scrollbar-width: thin;
+}
+
+/* Switch on hover */
+.service-card:hover .default-text {
+  opacity: 0;
+}
+
+.service-card:hover .hover-text {
+  opacity: 1;
+}
+
+/* Smooth scrolling for navbar links */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* STATS SECTION */
+.stats-section {
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  padding: 100px 60px;
+  text-align: center;
+  color: #222;
+  scroll-margin-top: 80px;
+  position: relative;
+}
+
+/* Flex container for chart + hover card */
+.stats-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 60px;
+  position: relative;
+}
+
+/*  CHART BOX  */
+.chart-container {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+}
+
+/*  DESKTOP HOVER CARD  */
+.stats-hover-card {
+  width: 320px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: left;
+  color: #111;
+  opacity: 1;             /* Default card visible */
+  pointer-events: auto;
+  transform: translateX(0);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transition: all 0.45s ease;
+}
+
+/* Hover card heading */
+.stats-hover-card h3 {
+  font-size: 1.4rem;
+  color: #014143;
+  margin-bottom: 10px;
+}
+
+/* Hover card text */
+.stats-hover-card p {
+  font-size: 0.96rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+/*  MOBILE CARDS  */
+.mobile-stats-cards {
+  display: none;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.mobile-card {
+  background: rgba(255,255,255,0.25);
+  padding: 18px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.mobile-card h3 {
+  font-size: 1.2rem;
+  color: #014143;
+  margin-bottom: 8px;
+}
+
+.mobile-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.45;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+
+  .stats-content {
+    flex-direction: column;
+  }
+
+  .chart-container:hover {
+    transform: none;
+  }
+
+  .stats-hover-card {
+    display: none;
+  }
+
+  .mobile-stats-cards {
+    display: block;
+  }
+}
+
+/* Ensure canvas fits perfectly */
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+
+/* ===== Journey Section ===== */
+.journey-section {
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+  padding: 120px 60px;
+  color: #fff;
+  text-align: center;
+  scroll-margin-top: 80px;
+  position: relative;
+}
+
+.journey-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 80px;
+  font-weight: 700;
+}
+
+/* ===== Timeline Wrapper ===== */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;   /* increased space for premium zig-zag feel */
+}
+
+/* Center vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: rgba(2, 110, 15, 0.3);
+  transform: translateX(-50%);
+}
+
+/* ===== Individual Step ===== */
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 30px;
+}
+
+/* Zig-zag alternate steps */
+.step:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Number Circle */
+.circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5aa7, #579ceb);
+  color: rgb(210, 208, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.35rem;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+  z-index: 2;
+}
+
+/* ===== Step Content Cards ===== */
+.content {
+  background: rgb(251, 238, 238);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: #222;
+  border-radius: 15px;
+  padding: 25px 32px;
+  width: 45%;
+  backdrop-filter: blur(10px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.content:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.25);
+}
+
+/* Better spacing from center line */
+.step:nth-child(odd) .content {
+  margin-left: 70px;
+}
+
+.step:nth-child(even) .content {
+  margin-right: 70px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 28px;
+  }
+
+  .step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .circle {
+    margin-left: 0;
+  }
+
+  .content {
+    width: 100%;
+    margin: 18px 0 0 0;
+  }
+}
+
+
+
+/* ===== Contact Section ===== */
+.contact-section {
+  background: transparent;
+  padding: 120px 60px;
+  text-align: center;
+  color: #fff;
+  scroll-margin-top: 80px;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 60px;
+}
+
+.contact-info, .contact-panel {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(55, 55, 55, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  flex: 1;
+  min-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info:hover, .contact-panel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.contact-info h3, .contact-panel h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #02299f, #0078ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-info p, .contact-panel p {
+  font-size: 1rem;
+  color: #313131;
+  line-height: 1.6;
+}
+
+.mail-link a {
+  color: #04a9db;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mail-link a:hover {
+  color: #ff66b2;
+}
+
+.contact-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.contact-form input {
+  width: 80%;
+  padding: 0.8rem 1rem;
+  border-radius: 25px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  outline: none;
+  font-size: 1rem;
+  color: #222;
+}
+
+.contact-form input:focus {
+  border-color: #00c3ff;
+}
+
+.contact-form button {
+  padding: 0.7rem 3rem;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #0078ff, #00c3ff);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 120, 255, 0.5);
+}
+
+.form-message {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #aef;
+}
+
+
+
+/* ===== Footer Section ===== */
+.footer {
+  background: linear-gradient(#96c4fa);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #473d3d;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.made-with {
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: #343333;
+}
+
+.made-with span {
+  font-weight: 600;
+  background: linear-gradient(#025abf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+/* === Make all sections transparent === */
+section, 
+.services-section,
+.stats-section,
+#journeySection,
+#aboutSection {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Remove white cards shade if needed */
+.service-card,
+.stats-card {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+html, body {
+    background: linear-gradient(135deg, #ffdee9, #b5fffc) fixed;
+}
+
+
+
+/* Additional Register Form Styling */
+#registerForm select,
+#registerForm input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(139, 138, 138, 0.25);
+  color: #1d1c1c;
+  font-size: 1rem;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 17px;
+  opacity: 0.8;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}
