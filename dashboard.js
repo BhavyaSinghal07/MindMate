@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ================= CAMERA BOT CLICK =================
+//  CAMERA BOT CLICK 
 document.getElementById("cameraBotBtn").addEventListener("click", () => {
   alert("Camera AI Assistant will open here (future integration).");
 });
 
 
-// ================= CHAT BOT POPUP =================
+//  CHAT BOT POPUP 
 const chatBtn = document.getElementById("chatBotBtn");
 const chatWindow = document.getElementById("chatWindow");
 const closeChat = document.getElementById("closeChatBtn");
@@ -35,7 +35,7 @@ closeChat.addEventListener("click", () => {
 });
 
 
-// ================= SEND MESSAGE (basic preview only) =================
+// SEND MESSAGE (basic preview only)
 document.getElementById("sendMessage").addEventListener("click", () => {
   const msg = document.getElementById("userMessage").value.trim();
   if (!msg) return;
@@ -53,10 +53,8 @@ document.getElementById("sendMessage").addEventListener("click", () => {
 });
 
 
-
-// ===== OPEN PROFILE PAGE FROM NAVBAR =====
+// OPEN PROFILE PAGE FROM NAVBAR
 const openProfilePage = document.getElementById("openProfilePage");
-
 openProfilePage?.addEventListener("click", () => {
   window.location.href = "profile.html";
 });

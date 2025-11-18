@@ -64,7 +64,7 @@ body {
 }
 
 
-/* ===== ACTION CARDS LEFT + RIGHT ALIGNMENT ===== */
+/* ACTION CARDS LEFT + RIGHT ALIGNMENT */
 .dashboard-actions {
   display: flex;
   justify-content: center;
@@ -76,13 +76,10 @@ body {
 .action-card {
   display: flex;
   align-items: center;
-  /* justify-content: flex-start; */
   gap: 25px;
-
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(70, 70, 70, 0.15);
   backdrop-filter: blur(10px);
-
   padding: 25px;
   border-radius: 18px;
   width: 500px;
@@ -144,8 +141,7 @@ body {
 
 
 
-
-/* ===== FORCE TEXT INTO RIGHT-SIDE COLUMN WITHOUT CHANGING HTML ===== */
+/* FORCE TEXT INTO RIGHT-SIDE COLUMN WITHOUT CHANGING HTML */
 .action-card h3,
 .action-card p {
   display: block;
@@ -194,7 +190,7 @@ body {
 }
 
 
-/* ===== FIX: Proper Left Animation + Right Text Alignment ===== */
+/* FIX: Proper Left Animation + Right Text Alignment */
 .action-card {
   display: flex;
   align-items: center;
@@ -218,7 +214,7 @@ body {
 
 
 
-/* ===== CHAT POPUP ===== */
+/* CHAT POPUP */
 .chat-popup {
   position: fixed;
   right: 40px;

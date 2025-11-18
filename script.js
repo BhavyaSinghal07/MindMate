@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const ctx = chartCanvas.getContext("2d");
 
-  /* --- Professional Level Data (Desktop Hover Text) --- */
+  /* Professional Level Data (Desktop Hover Text) */
   const insightData = [
     {
       title: "Depression Cases - 31%",
@@ -30,7 +30,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  /* ---- PIE CHART ---- */
+
+/* PIE CHART ---- */
   const mindmateChart = new Chart(ctx, {
     type: "pie",
     data: {
@@ -98,8 +99,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-// ======= HERO NAVIGATION BUTTONS =======
+// HERO NAVIGATION BUTTONS
 document.addEventListener("DOMContentLoaded", () => {
   const journeyBtn = document.getElementById("journeyBtn");
   const aboutBtn = document.getElementById("aboutBtn");
@@ -118,8 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-// ======= LOGIN / REGISTER FORMS =======
+// LOGIN / REGISTER FORMS
 const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.getElementById("registerBtn");
 const formContainer = document.getElementById("formContainer");
@@ -135,7 +134,6 @@ loginBtn?.addEventListener("click", () => {
   loginForm.style.display = "flex";
   registerForm.style.display = "none";
   document.body.classList.add("blur-bg");
-  // window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // Open Register Form
@@ -144,7 +142,6 @@ registerBtn?.addEventListener("click", () => {
   registerForm.style.display = "flex";
   loginForm.style.display = "none";
   document.body.classList.add("blur-bg");
-  // window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // Switch to Register Form
@@ -180,9 +177,6 @@ loginForm?.addEventListener("submit", (e) => {
     return;
   }
 
-  // Placeholder for real authentication logic
-  // alert("Login successful!");
-
   // SAVE USERNAME / EMAIL FOR DASHBOARD
   localStorage.setItem("mindmate_username", text);
 
@@ -208,8 +202,6 @@ registerForm?.addEventListener("submit", (e) => {
     return;
   }
 
-  // alert("Registered successfully!");
-
   // SAVE USER NAME FOR DASHBOARD
   localStorage.setItem("mindmate_username", name);
 
@@ -228,7 +220,7 @@ formContainer?.addEventListener("click", (e) => {
   }
 });
 
-// ======= CONTACT FORM (ABOUT US SECTION) =======
+// CONTACT FORM (ABOUT US SECTION)
 const contactForm = document.getElementById("contactForm");
 
 contactForm?.addEventListener("submit", (e) => {
@@ -245,11 +237,11 @@ contactForm?.addEventListener("submit", (e) => {
 });
 
 
-// ====== DOB VALIDATION ======
+// DOB VALIDATION
 const dobInput = document.getElementById("regDOB");
 dobInput.max = new Date().toISOString().split("T")[0];  // prevents future dates
 
-// ====== PASSWORD TOGGLE ======
+// PASSWORD TOGGLE
 const toggleRegPass = document.getElementById("toggleRegPass");
 const regPassInput = document.getElementById("regPassword");
 
@@ -257,4 +249,3 @@ toggleRegPass.addEventListener("click", () => {
     const type = regPassInput.getAttribute("type") === "password" ? "text" : "password";
     regPassInput.setAttribute("type", type);
 });
-

@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
 //  AVATAR POPUP
 const avatarOptions = ["avtaar.png","avtaar1.png","avtaar2.jpg","avtaar3.jpg","avtaar4.jpg"];
-
 let avatarPopup;
 
 function openAvatarPicker() {
@@ -35,9 +35,7 @@ function openAvatarPicker() {
     let html = "<h3>Select Avatar</h3><div class='avatar-grid'>";
     
     avatarOptions.forEach(a => {
-        html += `
-            <img src="${a}" class="avatar-choice" onclick="setAvatar('${a}')">
-        `;
+        html += `<img src="${a}" class="avatar-choice" onclick="setAvatar('${a}')">`;
     });
 
     html += `</div><button onclick="closeAvatarPopup()" class="close-avatar">Close</button>`;
@@ -61,8 +59,8 @@ function setAvatar(src) {
     closeAvatarPopup();
 }
 
-// PHOTO UPLOAD + CROPPER 
 
+// PHOTO UPLOAD + CROPPER 
 let cropper;
 
 document.getElementById("changePhotoBtn").addEventListener("click", () => {
@@ -86,8 +84,8 @@ document.getElementById("profileUpload").addEventListener("change", (e) => {
     reader.readAsDataURL(file);
 });
 
-//  CROPPER MODAL CREATION ============
 
+//  CROPPER MODAL CREATION 
 function openCropper(imageSrc) {
     let cropModal = document.createElement("div");
     cropModal.className = "crop-modal";
@@ -98,8 +96,7 @@ function openCropper(imageSrc) {
                 <button id="cropSaveBtn">Save Photo</button>
                 <button id="cropCancelBtn">Cancel</button>
             </div>
-        </div>
-    `;
+        </div>`;
 
     document.body.appendChild(cropModal);
 
@@ -131,7 +128,8 @@ function openCropper(imageSrc) {
     };
 }
 
-// ========= SAVE BIO ======================
+
+// SAVE BIO 
 document.getElementById("saveBioBtn").addEventListener("click", () => {
     let user = JSON.parse(localStorage.getItem("mindmateUser")) || {};
     user.bio = document.getElementById("userBio").value;
@@ -139,7 +137,7 @@ document.getElementById("saveBioBtn").addEventListener("click", () => {
     alert("Bio updated!");
 });
 
-// ===== SAVE PROFILE DETAILS =================
+// SAVE PROFILE DETAILS 
 document.getElementById("profileDetailsForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -170,7 +168,7 @@ document.getElementById("profileDetailsForm").addEventListener("submit", (e) => 
 });
 
 
-// === BACK TO DASHBOARD (NAVBAR CLICK) ============
+// BACK TO DASHBOARD (NAVBAR CLICK)
 document.querySelector(".profile-mini").addEventListener("click", () => {
     window.location.href = "dashboard.html";
 });
@@ -178,4 +176,169 @@ document.querySelector(".profile-mini").addEventListener("click", () => {
 
 document.getElementById('logoutBtn').addEventListener('click', function(){
         window.location.href = 'index.html';
-    });
+});
+
+
+
+/* ===== Activity Calendar Heatmap Script =====
+   - Stores activity counts in localStorage key 'mindmateActivity'
+   - Format: { "YYYY-MM-DD": count, ... }
+   - Use incrementActivity(dateStr, n) to add activity (n optional)
+*/
+
+(function () {
+  const storageKey = "mindmateActivity";
+  const calGrid = document.getElementById("calGrid");
+  const calTitle = document.getElementById("calTitle");
+  const prevBtn = document.getElementById("calPrev");
+  const nextBtn = document.getElementById("calNext");
+
+  // Start with today
+  let viewDate = new Date(); // will be set to 1st of month in render
+
+  function loadActivity() {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey)) || {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveActivity(obj) {
+    localStorage.setItem(storageKey, JSON.stringify(obj));
+  }
+
+  // increment activity for a date (YYYY-MM-DD)
+  window.incrementActivity = function(dateStr, n = 1) {
+    const data = loadActivity();
+    data[dateStr] = (data[dateStr] || 0) + n;
+    saveActivity(data);
+    renderCalendar(viewDate);
+  };
+
+  // helper: format YYYY-MM-DD
+  function ymd(date) {
+    return date.toISOString().slice(0,10);
+  }
+
+  // determine intensity class by count
+  function intensityClass(count, max) {
+    if (!count || count <= 0) return "none";
+    // normalize to low/mid/high based on max
+    if (max <= 1) return "low";
+    const ratio = count / max;
+    if (ratio < 0.4) return "low";
+    if (ratio < 0.8) return "mid";
+    return "high";
+  }
+
+  // render the calendar for month of `d` (Date)
+  function renderCalendar(d) {
+    // set to first of month
+    const first = new Date(d.getFullYear(), d.getMonth(), 1);
+    const year = first.getFullYear();
+    const month = first.getMonth();
+
+    calTitle.textContent = first.toLocaleString(undefined, { month: "long", year: "numeric" });
+
+    // how many days in month
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    // weekday of first (0=Sun..6=Sat)
+    const startWeekday = first.getDay();
+
+    // load activity data and compute max for normalization
+    const activity = loadActivity();
+    let maxCount = 0;
+    for (let i = 1; i <= daysInMonth; i++) {
+      const key = `${year}-${String(month + 1).padStart(2,"0")}-${String(i).padStart(2,"0")}`;
+      const c = activity[key] || 0;
+      if (c > maxCount) maxCount = c;
+    }
+
+    // clear grid
+    calGrid.innerHTML = "";
+
+    // leading empty cells
+    for (let i = 0; i < startWeekday; i++) {
+      const empty = document.createElement("div");
+      empty.className = "cal-cell empty";
+      calGrid.appendChild(empty);
+    }
+
+    // day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+
+        const cell = document.createElement("div");
+        cell.className = "cal-cell";
+
+        const key = `${year}-${String(month + 1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+        const dateObj = new Date(`${key}T00:00:00`);
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        // FUTURE DATE → blur + no activity color
+        if (dateObj > today) {
+            cell.classList.add("future");
+            cell.textContent = day;
+            calGrid.appendChild(cell);
+            continue;
+        }
+
+        // PAST or TODAY → normal heatmap behavior
+        const count = activity[key] || 0;
+        const cls = intensityClass(count, maxCount);
+        cell.classList.add(cls);
+
+        cell.textContent = day;
+
+        const tip = document.createElement("div");
+        tip.className = "cal-tooltip";
+        tip.innerText = `${key} — ${count} activity`;
+        cell.appendChild(tip);
+
+        calGrid.appendChild(cell);
+    }
+
+
+    // trailing empty cells to complete the grid (optional)
+    const totalCells = startWeekday + daysInMonth;
+    const trailing = (7 - (totalCells % 7)) % 7;
+    for (let i = 0; i < trailing; i++) {
+      const empty = document.createElement("div");
+      empty.className = "cal-cell empty";
+      calGrid.appendChild(empty);
+    }
+  }
+
+  // prev/next controls
+  prevBtn.addEventListener("click", () => {
+    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1);
+    renderCalendar(viewDate);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    viewDate = new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1);
+    renderCalendar(viewDate);
+  });
+
+  // start render: set viewDate to first of current month
+  viewDate = new Date();
+  renderCalendar(viewDate);
+
+  // OPTIONAL: demo helper to generate random data (comment/uncomment to use)
+  // generateDemoData();
+
+  function generateDemoData() {
+    const data = {};
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    for (let d = 1; d <= 28; d++) {
+      const key = `${year}-${String(month).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+      data[key] = Math.round(Math.random() * 6);
+    }
+    saveActivity(data);
+    renderCalendar(viewDate);
+  }
+
+})();

@@ -101,7 +101,6 @@ body {
 }
 
 /* BUTTON */
-
 .saveBtn {
   margin-top: 15px;
   width: 40%;
@@ -114,7 +113,6 @@ body {
   cursor: pointer;
   font-size: 15px;
 }
-
 
 .button-container {
   display: flex;
@@ -214,8 +212,7 @@ body {
 }
 
 
-/*  CROP MODAL  */
-
+/*  CROP MODAL */
 .crop-modal {
   position: fixed;
   inset: 0;
@@ -258,4 +255,142 @@ body {
 
 #cropCancelBtn {
   background: #ccc;
+}
+
+
+/* Activity Calendar Heatmap (Profile) */
+.activity-calendar {
+  margin-top: 30px;
+  background: rgba(230, 229, 229, 0.08);
+  border: 1px solid rgba(152, 151, 151, 0.12);
+  padding: 12px;
+  border-radius: 12px;
+  width: calc(100% - 10px);
+  box-shadow: 6px 6px 18px rgba(8, 7, 7, 0.06);
+  color: #0f2b2b;
+}
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cal-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #014143;
+}
+
+.cal-btn {
+  background: rgba(87,156,235,0.12);
+  border: 1px solid rgba(87,156,235,0.18);
+  color: #014143;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Weekday row */
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  font-size: 0.7rem;
+  color: rgb(23, 70, 85);
+  margin-bottom: 1px;
+}
+
+/* Grid of days */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+/* Each day cell */
+.cal-cell {
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: rgba(0,0,0,0.6);
+  background: rgba(129, 128, 128, 0.03);
+  cursor: default;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  position: relative;
+}
+
+/* empty slot for leading blanks */
+.cal-cell.empty {
+  background: transparent;
+}
+
+/* intensity classes (use gradient-ish colors) */
+.cal-cell.none { background: rgba(188, 187, 187, 0.03); }
+.cal-cell.low  { background: rgba(99,155,231,0.25); }
+.cal-cell.mid  { background: rgba(99,155,231,0.45); }
+.cal-cell.high { background: linear-gradient(90deg,#ff7ab6,#579ceb); color: #fff; }
+
+/* hover tooltip look */
+.cal-cell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 5;
+}
+
+/* legend */
+.cal-legend {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  justify-content: center;
+  color: #333;
+}
+
+.legend-squares { display:flex; gap:6px; align-items:center; }
+.legend-squares .lg { width:18px; height:18px; border-radius:4px; border:1px solid rgba(0,0,0,0.06); }
+.legend-squares .none { background: rgba(255,255,255,0.03); }
+.legend-squares .low  { background: rgba(99,155,231,0.25); }
+.legend-squares .mid  { background: rgba(99,155,231,0.45); }
+.legend-squares .high { background: linear-gradient(90deg,#ff7ab6,#579ceb); }
+
+/* Tooltip */
+.cal-tooltip {
+  position: absolute;
+  top: -44px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,20,30,0.95);
+  color: #fff;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.cal-cell:hover .cal-tooltip { opacity: 1; }
+
+/* small screens */
+@media (max-width: 480px) {
+  .cal-cell { height: 30px; font-size: 0.7rem; }
+  .avatar-popup, .crop-modal { width: 90%; }
+}
+
+/* to show future dates not working not applicable*/
+.cal-cell.future {
+  opacity: 0.7;
+  filter: blur(0.75px);
+  pointer-events: none;
+  color: #222;
 }

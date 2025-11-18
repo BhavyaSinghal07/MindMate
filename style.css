@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-/* ===== Body ===== */
+/* Body */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ffdee9, #b5fffc);
@@ -27,7 +27,7 @@ section h4 {
 }
 
 
-/* ===== Navbar ===== */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -66,7 +66,7 @@ section h4 {
     transform: scale(1.05);
 }
 
-/* ===== Login Button (Blue Neon Glow) ===== */
+/*Login Button (Blue Neon Glow)*/
 .login-btn {
     position: relative;
     padding: 0.6rem 1.4rem;
@@ -108,7 +108,7 @@ section h4 {
 }
 
 
-/* ===== Hero Section ===== */
+/* Hero Section */
 .hero {
     display: flex;
     flex-direction: column;
@@ -145,7 +145,7 @@ section h4 {
     animation: fadeInUp 2s ease forwards;
 }
 
-/* ===== Register Button (Pink Glow) ===== */
+/* Register Button (Pink Glow) */
 .register-btn {
     position: relative;
     padding: 1rem 3rem;
@@ -187,7 +187,7 @@ section h4 {
     100% { background-position: 0% 50%; }
 }
 
-/* ===== Overlay (blur background) ===== */
+/* Overlay (blur background) */
 #overlay {
     position: fixed;
     inset: 0;
@@ -204,7 +204,7 @@ section h4 {
     pointer-events: auto;
 }
 
-/* ===== Form Container (Fixed Centered) ===== */
+/* Form Container (Fixed Centered) */
 .form-container {
     position: fixed;
     inset: 0;
@@ -222,7 +222,7 @@ section h4 {
     visibility: visible;
 }
 
-/* ===== Actual Forms ===== */
+/* Actual Forms */
 .form {
     display: none;
     position: relative;
@@ -297,7 +297,7 @@ section h4 {
     cursor: pointer;
 }
 
-/* ===== Close Button ===== */
+/* Close Button */
 .close-form {
     position: absolute;
     top: 10px;
@@ -315,7 +315,7 @@ section h4 {
     transform: scale(1.2);
 }
 
-/* ===== Animations ===== */
+/* Animations */
 @keyframes fadeInText {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -327,8 +327,7 @@ section h4 {
 }
 
 
-
-/* --- Services Section --- */
+/* Services Section */
 .services-section {
   background: linear-gradient(135deg, #ffdee9, #b5fffc);
   padding: 100px 40px;
@@ -381,14 +380,14 @@ section h4 {
   transform: scale(0.9);
 }
 
-/* ---- TITLE ---- */
+/* TITLE */
 .service-card h3 {
   font-size: 1.5rem;
   color: #14525b;
   margin-bottom: 8px;
 }
 
-/* ---- TEXT BLOCKS ---- */
+/* TEXT BLOCKS */
 .default-text,
 .hover-text {
   font-size: 0.95rem;
@@ -428,7 +427,6 @@ section h4 {
 html {
   scroll-behavior: smooth;
 }
-
 
 
 /* STATS SECTION */
@@ -525,7 +523,7 @@ html {
   line-height: 1.45;
 }
 
-/* ------------------ RESPONSIVE ------------------ */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
   .stats-content {
@@ -553,7 +551,7 @@ html {
 
 
 
-/* ===== Journey Section ===== */
+/* Journey Section */
 .journey-section {
   background: linear-gradient(135deg, #ffdee9, #b5fffc);
   padding: 120px 60px;
@@ -569,7 +567,7 @@ html {
   font-weight: 700;
 }
 
-/* ===== Timeline Wrapper ===== */
+/* Timeline Wrapper */
 .timeline {
   position: relative;
   max-width: 900px;
@@ -590,7 +588,7 @@ html {
   transform: translateX(-50%);
 }
 
-/* ===== Individual Step ===== */
+/* Individual Step */
 .step {
   display: flex;
   align-items: center;
@@ -620,7 +618,7 @@ html {
   z-index: 2;
 }
 
-/* ===== Step Content Cards ===== */
+/* Step Content Cards */
 .content {
   background: rgb(251, 238, 238);
   border: 1.5px solid rgba(255, 255, 255, 0.25);
@@ -647,7 +645,7 @@ html {
   margin-right: 70px;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 768px) {
   .timeline::before {
     left: 28px;
@@ -673,8 +671,7 @@ html {
 }
 
 
-
-/* ===== Contact Section ===== */
+/* Contact Section */
 .contact-section {
   background: transparent;
   padding: 120px 60px;
@@ -778,8 +775,7 @@ html {
 }
 
 
-
-/* ===== Footer Section ===== */
+/* Footer Section */
 .footer {
   background: linear-gradient(#96c4fa);
   backdrop-filter: blur(10px);
@@ -816,7 +812,7 @@ html {
 
 
 
-/* === Make all sections transparent === */
+/* Make all sections transparent */
 section, 
 .services-section,
 .stats-section,
@@ -836,7 +832,6 @@ section,
 html, body {
     background: linear-gradient(135deg, #ffdee9, #b5fffc) fixed;
 }
-
 
 
 /* Additional Register Form Styling */

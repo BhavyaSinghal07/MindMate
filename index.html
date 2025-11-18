@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMate</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- LottiePlayer CDN -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 </head>
@@ -30,13 +34,11 @@
   <section id="hero" class="hero">
     <div class="hero-content">
       <h1>Welcome to <span>MindMate</span></h1>
-      <p>Machine Learning Based Mental Wellness Assistant.
-        <br>
+      <p>Machine Learning Based Mental Wellness Assistant. <br>
         Understand your feelings, track your mood, and receive support anytime, anywhere.</p>
       <button id="registerBtn" class="btn register-btn">Register</button>
     </div>
   </section>
-
 
 
   <!-- Services Section -->
@@ -99,8 +101,7 @@
   </section>
 
 
-
-<!-- ======================= STATS ======================= -->
+<!-- STATS -->
 <section id="stats" class="stats-section">
   <h2 class="section-title">Mental Health Data (WHO-based)</h2>
 
@@ -147,7 +148,7 @@
 
 
 
-<!-- ===== Journey Section ===== -->
+<!-- Journey Section -->
 <section id="journey" class="journey-section">
   <h2 class="section-title">Your MindMate Journey</h2>
 
@@ -203,7 +204,7 @@
 
 
 
-<!-- ===== contact / Contact Section ===== -->
+<!--Contact / Contact Section-->
 <section id="contact" class="contact-section">
   <h2 class="section-title">Contact Us</h2>
   <div class="contact-content">
@@ -231,7 +232,7 @@
 </section>
 
 
-<!-- ===== Footer Section ===== -->
+<!--Footer Section-->
 <footer class="footer">
   <div class="footer-content">
     <p>© 2025 MindMate. All rights reserved.</p>
@@ -244,53 +245,52 @@
 
 
 
-  <!-- Forms -->
-  <div class="form-container" id="formContainer">
-  <!-- Login Form -->
-  <form class="form" id="loginForm">
+<!-- Forms -->
+<div class="form-container" id="formContainer">
+    <!-- Login Form -->
+    <form class="form" id="loginForm">
+        <button class="close-form">X</button>
+
+        <h2>Login</h2>
+        <input type="text" id="loginName" placeholder="Full Name" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <span id="switchToRegister">Register</span></p>
+    </form>
+
+    <!-- Register Form -->
+    <form class="form" id="registerForm">
       <button class="close-form">X</button>
 
-      <h2>Login</h2>
-      <input type="text" id="loginName" placeholder="Full Name" required>
-      <input type="password" id="loginPassword" placeholder="Password" required>
-      <button type="submit">Login</button>
-      <p>Don't have an account? <span id="switchToRegister">Register</span></p>
-  </form>
+      <h2>Register</h2>
 
-  <!-- Register Form -->
-  <form class="form" id="registerForm">
-    <button class="close-form">X</button>
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="tel" id="regPhone" placeholder="Phone Number" required>
 
-    <h2>Register</h2>
+      <!-- Date of Birth -->
+      <input type="date" id="regDOB" required>
 
-    <input type="text" id="regName" placeholder="Full Name" required>
-    <input type="email" id="regEmail" placeholder="Email" required>
-    <input type="tel" id="regPhone" placeholder="Phone Number" required>
+      <!-- Gender -->
+      <select id="regGender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+      </select>
 
-    <!-- Date of Birth -->
-    <input type="date" id="regDOB" required>
+      <!-- Password with Eye Icon -->
+      <div class="password-container">
+          <input type="password" id="regPassword" placeholder="Password" required>
+          <span class="toggle-password" id="toggleRegPass">👁</span>
+      </div>
 
-    <!-- Gender -->
-    <select id="regGender" required>
-        <option value="" disabled selected>Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-    </select>
+      <button type="submit">Create Account</button>
 
-    <!-- Password with Eye Icon -->
-    <div class="password-container">
-        <input type="password" id="regPassword" placeholder="Password" required>
-        <span class="toggle-password" id="toggleRegPass">👁</span>
-    </div>
+      <p>Already have an account? <span id="switchToLogin">Login</span></p>
+    </form>
 
-    <button type="submit">Create Account</button>
-
-    <p>Already have an account? <span id="switchToLogin">Login</span></p>
-  </form>
-
-  </div>
-
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script defer src="script.js"></script>
