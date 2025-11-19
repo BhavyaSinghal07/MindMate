@@ -342,3 +342,13 @@ document.getElementById('logoutBtn').addEventListener('click', function(){
   }
 
 })();
+
+
+
+// LOAD & DISPLAY TOKEN COUNT, ( ye sirff token display karega pr abhi token count increement code likhna pending h)
+(function loadTokens() {
+  const user = JSON.parse(localStorage.getItem("mindmateUser")) || {};
+  const tokens = user.tokens || 0;
+
+  document.getElementById("tokenCount").textContent = tokens;
+})();
